@@ -1,19 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://btcuawls402p8"]
+[gd_scene load_steps=5 format=3 uid="uid://btcuawls402p8"]
 
 [ext_resource type="Script" uid="uid://dqtilxmg6j13g" path="res://Scripts/player_script.gd" id="1_8tj53"]
+[ext_resource type="Material" uid="uid://83mt1yd1pqw4" path="res://Materials/green_material.tres" id="2_7cibt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dstt7"]
+material = ExtResource("2_7cibt")
+height = 1.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dstt7"]
+height = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_8tj53")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_dstt7")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_dstt7")
