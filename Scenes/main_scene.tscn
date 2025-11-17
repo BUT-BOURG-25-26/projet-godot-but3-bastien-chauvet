@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://djbb2g4mmtpe"]
+
+[ext_resource type="PackedScene" uid="uid://btcuawls402p8" path="res://Scenes/player_scene.tscn" id="1_52fb6"]
+
+[sub_resource type="Sky" id="Sky_52fb6"]
+
+[sub_resource type="Environment" id="Environment_52fb6"]
+background_mode = 2
+sky = SubResource("Sky_52fb6")
+tonemap_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2ia5b"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_52fb6"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_52fb6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2ia5b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_52fb6")
+
+[node name="Player" parent="." instance=ExtResource("1_52fb6")]
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 2.5, 1.5)
