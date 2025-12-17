@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/game_manager.gd"
 
+[dotnet]
+
+project/assembly_name="Moteur3D-Projet-Template"
+
 [input]
 
 move_forward={
