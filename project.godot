@@ -19,11 +19,6 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/game_manager.gd"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [dotnet]
 
 project/assembly_name="Moteur3D-Projet-Template"
@@ -64,3 +59,4 @@ jump={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

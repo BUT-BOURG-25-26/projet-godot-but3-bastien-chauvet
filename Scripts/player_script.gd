@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var health: int = 10
 #var weapon: Weapon
-var movement_speed: float = 150.
+var movement_speed: float = 350. # 150.
 var movement_inputs: Vector3
 var max_jump: int = 1
 var jump_count: int = 0
