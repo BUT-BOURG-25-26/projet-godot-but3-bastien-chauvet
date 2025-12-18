@@ -1,11 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://bmriyyrld4hkv"]
+[gd_scene load_steps=27 format=3 uid="uid://bmriyyrld4hkv"]
 
 [ext_resource type="Material" uid="uid://dcd1yh58fqhh" path="res://Materials/blue_material.tres" id="1_q8hp3"]
 [ext_resource type="Material" uid="uid://dc7afttdx0jca" path="res://Materials/yellow_material.tres" id="2_e80bh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_coslv"]
+size = Vector2(18, 22.3)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q8hp3"]
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_e80bh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_coslv"]
 material = ExtResource("1_q8hp3")
@@ -35,6 +36,20 @@ size = Vector3(6.35, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_grewx"]
 size = Vector3(6.35, 1, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_0ud7s"]
+material = ExtResource("1_q8hp3")
+size = Vector3(6.35, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bvdr"]
+size = Vector3(6.35, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0jmg"]
+material = ExtResource("1_q8hp3")
+size = Vector3(6.35, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8y1i"]
+size = Vector3(6.35, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ue4pp"]
 material = ExtResource("1_q8hp3")
 size = Vector3(6.35, 1, 1)
@@ -44,28 +59,28 @@ size = Vector3(6.35, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_q8hp3"]
 material = ExtResource("2_e80bh")
-size = Vector3(0.5, 1, 2.25)
+size = Vector3(0.5, 1, 2.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e80bh"]
 size = Vector3(0.5, 1, 2.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e80bh"]
 material = ExtResource("2_e80bh")
-size = Vector3(0.5, 1, 2.25)
+size = Vector3(0.5, 1, 2.27)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gw577"]
 size = Vector3(0.5, 1, 2.25)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gw577"]
 material = ExtResource("2_e80bh")
-size = Vector3(2.25, 1, 0.5)
+size = Vector3(2.27, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4ih6r"]
 size = Vector3(2.25, 1, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ih6r"]
 material = ExtResource("2_e80bh")
-size = Vector3(2.25, 1, 0.5)
+size = Vector3(2.27, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ltrk6"]
 size = Vector3(2.25, 1, 0.5)
@@ -73,14 +88,12 @@ size = Vector3(2.25, 1, 0.5)
 [node name="Room" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_coslv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("WorldBoundaryShape3D_q8hp3")
+shape = SubResource("WorldBoundaryShape3D_e80bh")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -121,7 +134,7 @@ mesh = SubResource("BoxMesh_grewx")
 shape = SubResource("BoxShape3D_ue4pp")
 
 [node name="EastTopWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.825, 0.5, 10.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.825, 0.5, 10.65)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/EastTopWall"]
 mesh = SubResource("BoxMesh_gmo20")
@@ -129,8 +142,26 @@ mesh = SubResource("BoxMesh_gmo20")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/EastTopWall"]
 shape = SubResource("BoxShape3D_grewx")
 
+[node name="EastBottomWall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.825, 0.5, 10.65)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/EastBottomWall"]
+mesh = SubResource("BoxMesh_0ud7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/EastBottomWall"]
+shape = SubResource("BoxShape3D_7bvdr")
+
+[node name="WestBottomWall" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.825, 0.5, -10.65)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WestBottomWall"]
+mesh = SubResource("BoxMesh_d0jmg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WestBottomWall"]
+shape = SubResource("BoxShape3D_w8y1i")
+
 [node name="WestTopWall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.825, 0.5, -10.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.825, 0.5, -10.65)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/WestTopWall"]
 mesh = SubResource("BoxMesh_ue4pp")
@@ -159,7 +190,7 @@ mesh = SubResource("BoxMesh_e80bh")
 shape = SubResource("BoxShape3D_gw577")
 
 [node name="WestDoor" type="StaticBody3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -10.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -10.65)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Doors/WestDoor"]
 mesh = SubResource("BoxMesh_gw577")
@@ -168,7 +199,7 @@ mesh = SubResource("BoxMesh_gw577")
 shape = SubResource("BoxShape3D_4ih6r")
 
 [node name="EastDoor" type="StaticBody3D" parent="Doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 10.62)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 10.65)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Doors/EastDoor"]
 mesh = SubResource("BoxMesh_4ih6r")
