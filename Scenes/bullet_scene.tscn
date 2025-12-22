@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1rc31fx63bj8"]
+
+[ext_resource type="Script" uid="uid://coxcxmcl2210m" path="res://Scripts/bullet_script.gd" id="1_mfaca"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cbl27"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mfaca"]
+
+[node name="BulletScene" type="Area3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_mfaca")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cbl27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_mfaca")

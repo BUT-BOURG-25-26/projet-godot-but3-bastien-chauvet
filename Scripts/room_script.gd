@@ -13,11 +13,6 @@ extends Node3D
 var nb_enemy: int
 var is_completed: bool = false
 
-func _ready() -> void:
-	pass
-
-
-
 func _process(_delta: float) -> void:
 	if(is_completed):
 		north_door.disabled = false
@@ -53,7 +48,7 @@ func _on_spawn_enemy_timer_timeout() -> void:
 	for i in range(nb_enemy):
 		var enemy: Enemy = enemy_scene.instantiate()
 		add_child(enemy)
-		enemy.position = Vector3(randf_range(-7, 6), 1, randf_range(-9, 9))
+		enemy.position = Vector3(randf_range(-7, 6), 0.5, randf_range(-9, 9))
 
 
 func _on_queue_free_timer_timeout() -> void:
