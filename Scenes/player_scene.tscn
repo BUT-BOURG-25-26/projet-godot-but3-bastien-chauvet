@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://btcuawls402p8"]
+[gd_scene load_steps=6 format=3 uid="uid://btcuawls402p8"]
 
 [ext_resource type="Script" uid="uid://dqtilxmg6j13g" path="res://Scripts/player_script.gd" id="1_8tj53"]
 [ext_resource type="Material" uid="uid://83mt1yd1pqw4" path="res://Materials/green_material.tres" id="2_7cibt"]
+[ext_resource type="Script" uid="uid://chlqy41p3v8d7" path="res://Scripts/weapon_script.gd" id="3_e13mc"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dstt7"]
 material = ExtResource("2_7cibt")
@@ -21,3 +22,13 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_dstt7")
+
+[node name="Weapon" type="Node" parent="."]
+script = ExtResource("3_e13mc")
+metadata/_custom_type_script = "uid://chlqy41p3v8d7"
+
+[node name="ReloadTimer" type="Timer" parent="Weapon"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Weapon/ReloadTimer" to="Weapon" method="_on_timer_timeout"]

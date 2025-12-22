@@ -11,14 +11,14 @@ extends Node3D
 @onready var queue_free_timer: Timer = $QueueFreeTimer
 
 var nb_enemy: int
-var is_completed: bool = true
+var is_completed: bool = false
 
 func _ready() -> void:
 	pass
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(is_completed):
 		north_door.disabled = false
 		south_door.disabled = false

@@ -2,10 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 var health: int = 10
-#var weapon: Weapon
+@onready var weapon: Weapon = $Weapon
 var movement_speed: float = 1000. # 150.
 var movement_inputs: Vector3
-var max_jump: int = 1
+var max_jump: int = 3
 var jump_count: int = 0
 
 func _physics_process(delta: float) -> void:
@@ -13,6 +13,7 @@ func _physics_process(delta: float) -> void:
 	move(delta)
 	jump(delta)
 	move_and_slide()
+	shoot()
 	
 	return
 
@@ -33,3 +34,13 @@ func jump(delta):
 		velocity.y = 5
 		jump_count += 1
 	return
+
+func shoot() -> void :
+	if(weapon.reloaded and Input.is_action_pressed("shoot_up")):
+		weapon.shootUp()
+	if(weapon.reloaded and Input.is_action_pressed("shoot_down")):
+		weapon.shootDown()
+	if(weapon.reloaded and Input.is_action_pressed("shoot_right")):
+		weapon.shootRight()
+	if(weapon.reloaded and Input.is_action_pressed("shoot_left")):
+		weapon.shootLeft()

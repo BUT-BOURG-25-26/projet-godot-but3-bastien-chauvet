@@ -2,10 +2,12 @@ extends Node
 
 @export var room_scene: PackedScene = preload("res://Scenes/room_scene.tscn")
 
-var player: Player
+@onready var player: Player = $Player
+
 var main: MainScene
 var camera: CustomCamera
 var actual_room: Room
+
 
 var cmpt1: int = 0
 var cmpt2: int = 0
@@ -41,7 +43,10 @@ func hasEnteredNewRoom(direction):
 	actual_room.global_position = Vector3(cmpt1*16., 0, cmpt2*21.3)
 	player.global_position += Vector3(verticalMovement, 0, horizontalMovement)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(actual_room != null):
 		if(actual_room.global_position.x == camera.global_position.x && actual_room.global_position.z == camera.global_position.z):
 			camera.stopMoving()
+
+func launch() -> void:
+	print("coucou")

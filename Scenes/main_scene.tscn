@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://djbb2g4mmtpe"]
+[gd_scene load_steps=10 format=3 uid="uid://djbb2g4mmtpe"]
 
 [ext_resource type="PackedScene" uid="uid://btcuawls402p8" path="res://Scenes/player_scene.tscn" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://dqk88acv3wlec" path="res://Scripts/main_script.gd" id="1_jv6wh"]
+[ext_resource type="PackedScene" uid="uid://cm8hbnqwow322" path="res://Scenes/main_menu_ui.tscn" id="2_6ev3c"]
 [ext_resource type="PackedScene" uid="uid://bmriyyrld4hkv" path="res://Scenes/room_scene.tscn" id="2_6l7je"]
+[ext_resource type="PackedScene" uid="uid://85gogj3dgfeh" path="res://Scenes/gameplay_ui.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://jvbtbp8d8rdb" path="res://Scripts/camera_3d_script.gd" id="2_x6ack"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_52fb6"]
@@ -19,6 +21,11 @@ tonemap_mode = 2
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_jv6wh")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_6ev3c")]
+visible = false
+
+[node name="GameplayUI" parent="." instance=ExtResource("2_iacmt")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
