@@ -23,9 +23,8 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_dstt7")
 
-[node name="Weapon" type="Node" parent="."]
+[node name="Weapon" type="Node3D" parent="."]
 script = ExtResource("3_e13mc")
-metadata/_custom_type_script = "uid://chlqy41p3v8d7"
 
 [node name="ReloadTimer" type="Timer" parent="Weapon"]
 wait_time = 0.2

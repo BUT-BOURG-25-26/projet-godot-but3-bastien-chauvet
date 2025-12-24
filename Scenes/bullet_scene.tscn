@@ -1,17 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1rc31fx63bj8"]
+[gd_scene load_steps=5 format=3 uid="uid://c1rc31fx63bj8"]
 
 [ext_resource type="Script" uid="uid://coxcxmcl2210m" path="res://Scripts/bullet_script.gd" id="1_mfaca"]
+[ext_resource type="Material" uid="uid://83mt1yd1pqw4" path="res://Materials/green_material.tres" id="2_8yh7i"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cbl27"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8yh7i"]
+size = Vector3(1.2, 2, 1.2)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mfaca"]
+material = ExtResource("2_8yh7i")
 
 [node name="BulletScene" type="Area3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_mfaca")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_cbl27")
+shape = SubResource("BoxShape3D_8yh7i")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_mfaca")
+
+[node name="RangeTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="RangeTimer" to="." method="_on_range_timer_timeout"]

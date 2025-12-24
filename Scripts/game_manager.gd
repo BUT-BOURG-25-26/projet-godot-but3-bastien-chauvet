@@ -8,7 +8,7 @@ var main: MainScene
 var camera: CustomCamera
 var actual_room: Room
 
-var cmpt1: int = 0
+var cmpt1: int = -1
 var cmpt2: int = 0
 
 var nb_rooms: int = 0
@@ -50,7 +50,7 @@ func _process(_delta: float) -> void:
 
 func launch() -> void:
 	player.visible = true
-	main.room.visible = true
 	main.gameplay_ui.visible = true
 	main.main_menu.visible = false
+	hasEnteredNewRoom("north")
 	nb_rooms += 1

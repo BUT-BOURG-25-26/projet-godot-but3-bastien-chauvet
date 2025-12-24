@@ -2,8 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 var health: int = 10
-@onready var weapon: Weapon = $Weapon
-var movement_speed: float = 1000. # 150.
+
+@onready var weapon: Node3D = $Weapon
+
+var movement_speed: float = 500.
 var movement_inputs: Vector3
 var max_jump: int = 3
 var jump_count: int = 0

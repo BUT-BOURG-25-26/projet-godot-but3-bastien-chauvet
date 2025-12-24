@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://djbb2g4mmtpe"]
+[gd_scene load_steps=9 format=3 uid="uid://djbb2g4mmtpe"]
 
 [ext_resource type="PackedScene" uid="uid://btcuawls402p8" path="res://Scenes/player_scene.tscn" id="1_52fb6"]
 [ext_resource type="Script" uid="uid://dqk88acv3wlec" path="res://Scripts/main_script.gd" id="1_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://cm8hbnqwow322" path="res://Scenes/main_menu_ui.tscn" id="2_6ev3c"]
-[ext_resource type="PackedScene" uid="uid://bmriyyrld4hkv" path="res://Scenes/room_scene.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://85gogj3dgfeh" path="res://Scenes/gameplay_ui.tscn" id="2_iacmt"]
 [ext_resource type="Script" uid="uid://jvbtbp8d8rdb" path="res://Scripts/camera_3d_script.gd" id="2_x6ack"]
 
@@ -34,15 +33,13 @@ shadow_enabled = true
 environment = SubResource("Environment_jv6wh")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -6.5, 6.5, 0)
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, -22.5, 6.5, 0)
 projection = 1
 size = 12.5
 script = ExtResource("2_x6ack")
 
 [node name="Player" parent="." instance=ExtResource("1_52fb6")]
-visible = false
-
-[node name="Room" parent="." instance=ExtResource("2_6l7je")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 0, 0)
 visible = false
 
 [node name="Timer" type="Timer" parent="."]

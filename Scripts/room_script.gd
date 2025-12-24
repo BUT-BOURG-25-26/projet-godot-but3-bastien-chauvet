@@ -10,7 +10,7 @@ extends Node3D
 
 @onready var queue_free_timer: Timer = $QueueFreeTimer
 
-var nb_enemy: int
+var nb_enemy: int = GameManager.nb_rooms
 var is_completed: bool = false
 
 func _process(_delta: float) -> void:
